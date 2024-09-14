@@ -32,7 +32,7 @@ namespace BulmeSharp
         {
             InitializeComponent();
         }
-        public string ReadString(string message)
+        public string InputString(string message)
         {
             DataType = InputDataType.TypeString;
             LblMessage.Text = message;
@@ -40,12 +40,28 @@ namespace BulmeSharp
             return stringValue;
         }
 
-        public double ReadDouble(string message)
+        public double InputDouble(string message)
         {
             DataType = InputDataType.TypeDouble;
             LblMessage.Text = message;
             this.ShowDialog();
             return doubleValue;
+        }
+
+        public float InputFloat(string message)
+        {
+            DataType = InputDataType.TypeFloat;
+            LblMessage.Text = message;
+            this.ShowDialog();
+            return floatValue;
+        }
+
+        public int InputInt(string message)
+        {
+            DataType = InputDataType.TypeInteger;
+            LblMessage.Text = message;
+            this.ShowDialog();
+            return intValue;
         }
 
         private void BtnOkay_Click(object sender, EventArgs e)
@@ -65,7 +81,7 @@ namespace BulmeSharp
                     {
                         MessageBox.Show(
                             "Das war keine gültige Gleitkommazahl.\n\nGültige Gleitkommazahlen sind beispielsweiwse:" +
-                            "\n     3.14 oder \n  -123 oder \n 32318,123",
+                            "\n      3.14 oder \n   -123 oder \n 32318,123",
                             "Fehler bei der Eingabe",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation,

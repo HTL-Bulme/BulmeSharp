@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\ForwardCommand.cs" />
+    <Compile Include="Commands\RotateRight.cs" />
+    <Compile Include="Commands\TurtleState.cs" />
     <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
