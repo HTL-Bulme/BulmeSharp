@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+	<metadata>
+		<readme>docs\README.md</readme>
+		<id>BulmeSharp</id>
+		<version>0.9</version>
+		<title>Bulme Beginner C# Libary</title>
+		<authors>HTL Bulme</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<!-- <icon>icon.png</icon> -->
+		<projectUrl>http://www.bulme.at/</projectUrl>
+		<description>C# Library for Beginners</description>
+		<releaseNotes>This is the initial Version.</releaseNotes>
+		<copyright>Copyright HTL Bulme</copyright>
+		<tags>Turtle Beginner Learning C#</tags>
+	</metadata>
+	
+	<files>
+		<file src="bin\Release\BulmeSharp.dll" target="lib\net46"></file>
+		<file src="README.md" target="docs\" />
+	</files>
+</package>
