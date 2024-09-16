@@ -14,6 +14,7 @@ namespace BulmeSharp
 {
     public partial class TurtleForm : Form
     {
+        int NextCommandIndex = 0;
         private List<CommandBase> Commands;
         public TurtleForm()
         {
@@ -37,6 +38,7 @@ namespace BulmeSharp
             this.Left = (screen.Bounds.Width - this.Width) / 2;
             this.Top = (screen.Bounds.Height - this.Height) / 2;
 
+            TmrDraw.Start();
         }
 
         private void TurtleForm_Paint(object sender, PaintEventArgs e)
@@ -45,8 +47,13 @@ namespace BulmeSharp
             float pixelPerUnit = minLength / 200.0f;
 
             DrawCoordSys(e, pixelPerUnit);
-            DrawTurtle(e.Graphics, -40, -59, 1, 0, 7, pixelPerUnit);
-
+            TurtleState state = new TurtleState(e.Graphics, pixelPerUnit);
+            for (int i = 0; i < NextCommandIndex; i++)
+            {
+                var cmd = Commands[i];
+                cmd.Execute(state);
+            }
+            DrawTurtle(e.Graphics, state.X, state.Y, state.DirX, state.DirY, 7, pixelPerUnit);
         }
 
         private void DrawCoordSys(PaintEventArgs e, float pixelPerUnit)
@@ -80,11 +87,11 @@ namespace BulmeSharp
             x *= pixelPerUnit;
             y *= pixelPerUnit;
 
-            
+
             float radius = size * pixelPerUnit * 0.1f;
 
             // Rotation angle in degrees
-            float rotationAngle = (float)(Math.Atan2(dirY, dirX) * 180 / Math.PI);
+            float rotationAngle = (float)(Math.Atan2(dirY, dirX) * 180 / Math.PI) + 90;
 
             // Ellipse parameters (relative to rotation point)
             float ellipseWidth = size * 0.75f * pixelPerUnit;
@@ -98,7 +105,7 @@ namespace BulmeSharp
 
             g.FillEllipse(Brushes.DarkGreen,
                 (float)-radius * 2,
-                (float)- radius*8,
+                (float)-radius * 8,
                 radius * 4, radius * 4);
 
             g.FillEllipse(Brushes.DarkGreen,
@@ -131,5 +138,33 @@ namespace BulmeSharp
 
         }
 
+
+        private void TmrDraw_Tick(object sender, EventArgs e)
+        {
+            if (NextCommandIndex < Commands.Count)
+            {
+                NextCommandIndex++;
+                this.Refresh();
+            }
+            else
+            {
+                //if No Commands left --> Deactivate
+                TmrDraw.Enabled = false;
+            }
+        }
+
+        private void btnRedraw_Click(object sender, EventArgs e)
+        {
+            NextCommandIndex = 0;
+            TmrDraw.Interval = 200;
+            TmrDraw.Start();
+        }
+
+        private void BtnRedrawFast_Click(object sender, EventArgs e)
+        {
+            NextCommandIndex = 0;
+            TmrDraw.Interval = 20;
+            TmrDraw.Start();
+        }
     }
 }
