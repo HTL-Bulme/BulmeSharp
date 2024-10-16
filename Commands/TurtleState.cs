@@ -102,7 +102,10 @@ namespace BulmeSharp.Commands
 
         public void EndFill()
         {
-            G.FillPolygon(CurrentBrush, FillPoints.ToArray());
+            if (!Hidden)
+            {
+                G.FillPolygon(CurrentBrush, FillPoints.ToArray());
+            }
         }
     }
 }

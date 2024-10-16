@@ -3,7 +3,7 @@
 	<metadata>
 		<readme>docs\README.md</readme>
 		<id>BulmeSharp</id>
-		<version>0.9.2</version>
+		<version>0.10.1</version>
 		<title>Bulme Beginner C# Libary</title>
 		<authors>HTL Bulme</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -18,7 +18,7 @@
 	</metadata>
 
 	<files>
-		<file src="bin\Release\BulmeSharp.dll" target="lib\net46"></file>
+		<file src="bin\Release\BulmeSharp.dll" target="lib\net472"></file>
 		<file src="README.md" target="docs\" />
 	</files>
 </package>

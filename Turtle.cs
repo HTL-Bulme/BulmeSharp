@@ -56,7 +56,7 @@ namespace BulmeSharp
 
         public static void penDown()
         {
-            CommandBase cmd = new UpDownCommand(true);
+            CommandBase cmd = new UpDownCommand(false);
             GetForm().AddCommand(cmd);
         }
 
