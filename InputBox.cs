@@ -130,5 +130,10 @@ namespace BulmeSharp
                     throw new NotImplementedException();
             }
         }
+
+        private void InputBox_Shown(object sender, EventArgs e)
+        {
+            TxtInput.Focus();
+        }
     }
 }

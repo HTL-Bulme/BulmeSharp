@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BulmeSharp</RootNamespace>
     <AssemblyName>BulmeSharp</AssemblyName>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-	<PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -45,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\EndFillCommand.cs" />
+    <Compile Include="Commands\BeginFillCommand.cs" />
+    <Compile Include="Commands\LineWidthCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\ForwardCommand.cs" />
+    <Compile Include="Commands\DotCommand.cs" />
+    <Compile Include="Commands\ColorCommand.cs" />
+    <Compile Include="Commands\UpDownCommand.cs" />
     <Compile Include="Commands\RotateRight.cs" />
     <Compile Include="Commands\TurtleState.cs" />
     <Compile Include="InputBox.cs">
@@ -88,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BulmeSharp.nuspec" />
-    <None Include="README.md" >
+    <None Include="README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

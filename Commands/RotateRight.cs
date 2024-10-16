@@ -9,6 +9,7 @@ namespace BulmeSharp.Commands
     public class RotateRight : CommandBase
     {
         public double Angle { get; protected set; }
+        
         public RotateRight(double angle) : base("rt")
         {
             Angle = angle / 180 * Math.PI;

@@ -26,25 +26,67 @@ namespace BulmeSharp
 
         public static void fd(double distance)
         {
-            ForwardCommand cmd = new ForwardCommand(distance);
+            CommandBase cmd = new ForwardCommand(distance);
             GetForm().AddCommand(cmd);
         }
 
         public static void bk(double distance)
         {
-            ForwardCommand cmd = new ForwardCommand(-distance);
+            CommandBase cmd = new ForwardCommand(-distance);
             GetForm().AddCommand(cmd);
         }
 
         public static void rt(double angle)
         {
-            RotateRight cmd = new RotateRight(angle);
+            CommandBase cmd = new RotateRight(angle);
             GetForm().AddCommand(cmd);
         }
 
         public static void lt(double angle)
         {
-            RotateRight cmd = new RotateRight(-angle);
+            CommandBase cmd = new RotateRight(-angle);
+            GetForm().AddCommand(cmd);
+        }
+
+        public static void penUp()
+        {
+            CommandBase cmd = new UpDownCommand(true);
+            GetForm().AddCommand(cmd);
+        }
+
+        public static void penDown()
+        {
+            CommandBase cmd = new UpDownCommand(true);
+            GetForm().AddCommand(cmd);
+        }
+
+        public static void dot(double diameter)
+        {
+            CommandBase cmd = new DotCommand(diameter);
+            GetForm().AddCommand(cmd);
+        }
+
+
+        public static void setColor(string colorname)
+        {
+            CommandBase cmd = new SetColorCommand(colorname);
+            GetForm().AddCommand(cmd);
+        }
+
+        public static void setPenWidth(double width)
+        {
+            CommandBase cmd = new SetLineWidthCommand(width);
+            GetForm().AddCommand(cmd);
+        }
+
+        public static void beginFill()
+        {
+            CommandBase cmd = new BeginFillCommand();
+            GetForm().AddCommand(cmd);
+        }
+        public static void endFill()
+        {
+            CommandBase cmd = new EndFillCommand();
             GetForm().AddCommand(cmd);
         }
 

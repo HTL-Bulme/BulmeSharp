@@ -3,7 +3,7 @@
 	<metadata>
 		<readme>docs\README.md</readme>
 		<id>BulmeSharp</id>
-		<version>0.9</version>
+		<version>0.9.1</version>
 		<title>Bulme Beginner C# Libary</title>
 		<authors>HTL Bulme</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
